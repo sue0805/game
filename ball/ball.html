@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Brick Out</title>
     <style>
         body{
             box-sizing: border-box;
@@ -45,6 +45,7 @@
         <img id="movingball" src="ball.png" alt="ball">
         <div id="bar"></div>
     </div>
+    <p>이동 : 왼쪽 a 오른쪽 d</p>
     <script>
         var _top = 0;
         var left = 0;
@@ -146,14 +147,6 @@
                         posB = right-100;
                     } 
                         posB += barSpeed;
-                } else if(k1 == "z" || k1 == 'Z'){
-                    speed = 0;
-                    stepX = 0;
-                    stepY = 0;
-                } else if(k1 == 'x' || k1 == 'X'){
-                    speed = 2;
-                    stepX = speed;
-                    stepY= speed;
                 }
                 
             }

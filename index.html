@@ -72,7 +72,7 @@
 
             width:100%;
 
-            height: 1300px;
+            height: -webkit-fill-available;
 
             text-align: center;
 
@@ -82,7 +82,7 @@
 
         div>p{
 
-            padding-top:500px;
+            padding-top:50%;
             cursor: pointer;
 
         }        
@@ -141,15 +141,15 @@
             $('.screen p').each(function(i, e){
                 if($(e).text() == 'BRICK OUT'){
                     $(e).click(function(){
-                        location.replace('ball/ball.html');
+                        location.href = 'ball/ball.html';
                     });
                 } else if($(e).text() == 'SHOOTING DEVILS'){
                     $(e).click(function(){
-                        location.replace('shooting_devil/shooting_block.html');
+                        location.href = 'shooting_devil/shooting_block.html';
                     });
                 } else if($(e).text() == 'TETRIS'){
                     $(e).click(function(){
-                        location.replace('tetris/tetris.html');
+                        location.href = 'tetris/tetris.html';
                     });
                 }
             });
