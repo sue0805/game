@@ -1,0 +1,75 @@
+*{  
+    box-sizing: border-box;
+}
+body{
+    margin: 0px 100px;
+    background-color: black;
+}
+#gameArea{
+    margin: 0px 150px;
+    width: 300px;
+    height: 600px;
+}
+.bgGrid{
+    background-color: #333;
+    border : 1px solid #ccc;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+.snGrid{
+    background-color: #333;
+    border : 1px solid #ccc;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+#showNext{
+    width: 80px;
+    height: 80px;
+    left: 50px;
+    float: left;
+    color: white;
+}
+#info{
+    position: absolute;
+    width: 300px;
+    left: 600px;
+    top: 200px;
+    color: white;
+}
+#end{
+    position: absolute;
+    color: white;
+    left: 350px;
+    top: 290px;
+    z-index: 10;
+}
+h1{
+    margin: 0px 200px;
+    font-size: 60px;
+}
+h6{
+    margin: 10px 250px;
+    color: white;
+}
+.t{
+    color: red;
+}
+.e{
+    color: yellow;
+}
+.t2{
+    color: lightgreen;
+}
+.r{
+    color: blue;
+}
+.i{
+    color: orange;
+}
+.s{
+    color: violet;
+}

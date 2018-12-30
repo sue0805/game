@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3 Games of Sue</title>
+    <style>
+
+        *{
+
+            margin: 0px;
+
+        }
+
+        .menu{
+
+            width: 100%;
+
+            position: fixed;
+
+            z-index: 10;
+            background-color: floralwhite;
+
+        }
+
+        div>a{
+
+            background-color: floralwhite;
+
+            width: inherit;
+
+            text-decoration: none;
+
+            color: dimgrey;
+
+            padding: 20px;
+
+        }
+
+        .menu>div{
+
+            text-align: center;
+
+            float: left;
+
+            width:33.3%;
+
+            padding: 30px 0px;
+
+            background-color: floralwhite;
+
+            border-left: 2px solid white;
+
+            box-sizing: border-box;
+
+            font-weight: bolder;
+
+            color: dimgrey;
+
+        }
+
+        .screen{
+
+            width: 100%;
+
+        }
+
+        .screen>div{
+
+            border: 1px solid white;
+
+            width:100%;
+
+            height: 1300px;
+
+            text-align: center;
+
+            font-size: 100px;
+
+        }
+
+        div>p{
+
+            padding-top:500px;
+            cursor: pointer;
+
+        }        
+
+        .s1{
+
+            background-color: darksalmon;
+
+            color: white;
+
+        }
+
+        .s2{
+
+            background-color: darkseagreen;
+
+            color: white;
+
+        }
+
+        .s3{
+
+            background-color: darkcyan;
+
+            color: white;
+
+        }
+
+        .s4{
+
+            background-color: darkgoldenrod;
+
+            color: white;
+
+        }
+
+        .s5{
+
+            background-color: darkred;
+
+            color: white;
+
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.menu a').on('focusin click',function(e){
+                e.preventDefault();
+                var cls = ".s" + this.id;
+                var t = $(cls).offset().top;
+                console.log(t);
+                $(window).scrollTop(t);
+            });
+            $('.screen p').each(function(i, e){
+                if($(e).text() == 'BRICK OUT'){
+                    $(e).click(function(){
+                        location.replace('ball/ball.html');
+                    });
+                } else if($(e).text() == 'SHOOTING DEVILS'){
+                    $(e).click(function(){
+                        location.replace('shooting_devil/shooting_block.html');
+                    });
+                } else if($(e).text() == 'TETRIS'){
+                    $(e).click(function(){
+                        location.replace('tetris/tetris.html');
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="menu">
+        <div><a href="#brickout" id="1">BRICK OUT</a></div>
+        <div><a href="#shootingdevil" id="2">SHOOTING DEVILS</a></div>
+        <div><a href="#tetris" id="3">TETRIS</a></div>
+    </div>
+
+    <div class="screen">
+        <div class="s1" id="brickout"><p>BRICK OUT</p></div>
+        <div class="s2" id="shootingdevil"><p>SHOOTING DEVILS</p></div>
+        <div class="s3" id="tetris"><p>TETRIS</p></div>
+    </div>
+</body>
+</html>

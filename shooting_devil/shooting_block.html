@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shooting Block</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        body{
+            margin: 10px;
+        }
+        canvas{
+            border: 1px solid silver;
+            background-color: beige;
+        }
+        span{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var gamePiece;
+        var blocks = [];
+        var score = 0;
+        var startTime;
+        var curTime;
+        var life = 3;
+        var ongame;
+
+        $(document).ready(function(){
+            for(i = 0; i < 5; i++){
+                blocks[i] = new makeBlocks();
+            }
+            startGame();
+            $('h1').after('<span>life : '+ life +' score : ' + score + '</span>');
+            startTime = new Date().getTime();
+        });
+
+        function startGame(){
+            gameArea.start();
+            gamePiece = new component(30, 30, 235, 400);
+            gamePiece.update();
+            ongame = setInterval(updateGameArea, 20);
+        }
+
+        var gameArea = {
+            canvas : document.createElement('canvas')
+            , start : function(){
+                this.canvas.width = 500;
+                this.canvas.height = 500;
+                this.context = this.canvas.getContext('2d');
+                $('body').children().eq(1).after(this.canvas);
+                this.frameNo = 0;
+            }
+            , clear : function(){
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
+        }
+
+        function updateGameArea(){
+            gameArea.clear();
+            for(i = 0; i < blocks.length; i++){
+                blocks[i].updateBlock();
+            }
+            gamePiece.update();
+            curTime = new Date().getTime();
+            score += Math.floor((curTime - startTime)/1000);
+            $('span').text('life : ' + life + ' score : ' + score);
+        }
+
+        function component(width, height, x, y){
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+            var shotX = [];
+            var shotY = [];
+            var shotSpeed = -5;
+            var cnt = 0;
+
+            for(i=0; i < 10; i++){
+                shotX[i] = this.x+13;
+                shotY[i] = this.y;
+            }
+
+            ctx = gameArea.context;
+            cimg = document.createElement('img');
+            cimg.onload = function(){
+                ctx.drawImage(cimg, x, y, width, height);
+            };
+            cimg.src = 'ufo.png';
+            this.update = function(){
+                cnt++;
+                ctx.drawImage(cimg, this.x, this.y, this.width, this.height);
+                ctx.fillStyle = 'yellowgreen';
+                
+                for(i = 0; i < 10; i++){
+                    shotY[i] += shotSpeed;
+                    ctx.fillRect(shotX[i], shotY[i], 3, 10);
+                }
+                
+                for(i=0; i < blocks.length; i++){
+                    for(j=0; j < 10; j++){
+                        if(shotY[j] >= blocks[i].y && shotY[j] <= blocks[i].y+50 && shotX[j] <= blocks[i].x+50 && shotX[j] >= blocks[i].x){
+                            shotX[j] = this.x+13;
+                            shotY[j] = this.y;
+                            blocks[i] = new makeBlocks();
+                        }
+
+                        if(shotY[j] <= 0){
+                            shotX[j] = this.x+13;
+                            shotY[j] = this.y;
+                        }
+                    }
+                }
+
+            }
+
+            this.newPos = function(step){
+                if(this.x <= 0){
+                    this.x = 0;
+                } else if (this.x >= 470){
+                    this.x = 470;
+                }
+                this.x += step;
+            }
+        }
+
+        function makeBlocks(){
+            ctx = gameArea.context;
+            dev = document.createElement('img');
+            var gravity = 1;
+            this.x = Math.random()*450;
+            this.y = 0;
+            dev.onload = function(){
+                ctx.drawImage(dev, this.x, this.y, 50, 50);
+            }
+            dev.src = 'dev.png';
+            this.updateBlock = function(){
+                this.y += gravity;
+                ctx.drawImage(dev, this.x, this.y, 50, 50);
+                if(this.y == 450){
+                    life--;
+                    this.x = Math.random()*450;
+                    this.y = 0;
+                    if(life < 0){
+                        clearInterval(ongame);
+                        alert('game over');
+                    }
+                }
+            }
+        }
+
+        $('body').on('keydown', function(e){
+            console.log(e.key);
+            if(e.key == 'a' || e.key == 'A'){
+                gamePiece.newPos(-5);
+            } else if (e.key == 'd' || e.key == 'D'){
+                gamePiece.newPos(5);
+            } else if(e.key == 'r' || e.key=='R'){
+                location.reload();
+            }
+        });
+    </script>
+    <h1>SHOOTING DEVILS!!</h1>
+    <p>이동 : ←a&nbsp;&nbsp;&nbsp;d→
+        <br> 다시 시작하시려면 r 또는 R 키를 눌러주세요.
+    </p>
+</body>
+</html>
