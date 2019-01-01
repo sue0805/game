@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Press+Start+2P');
+*{
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    font-family: 'Press Start 2P';
+}
+body{
+    background-color: peachpuff;
+}
+#wrap{
+    width: 70%;
+    min-width: 537px;
+    margin:30px auto;
+    position: relative;
+}
+h1{
+    color: white;
+    float: left;
+    margin: 10px 30px 10px 10px;
+}
+.score{
+    float: left;
+    text-align: center;
+    background-color: darksalmon;
+    padding: 5px;
+    width: 100px;
+    margin: 5px;
+    color: white;
+}
+.score>p{
+    margin-top: 5px;
+}
+.time{
+    clear: both;
+    margin: 10px 10px 0px 40px;
+    text-align: center;
+    width: 100px;
+    background-color: floralwhite;
+    padding: 10px;
+    color: darksalmon;
+}
+#gameArea{
+    position: absolute;
+    clear: both;
+    width:100%;
+    max-width: 517px;
+    height: 518px;
+    margin: auto;
+    top: 100px;
+    background-color: darksalmon;
+    border: 10px solid floralwhite;
+}
+.cell{
+    width: 41px;
+    float: left;
+    height: 41px;
+    margin:3px;
+    box-sizing: border-box;
+}
+.red{
+    background-color: tomato;
+    border: 1px dashed white;
+}
+.yellow{
+    background-color: gold;
+    border: 1px dashed white;
+}
+.blue{
+    background-color: darkslateblue;
+    border: 1px dashed white;
+}
+.pink{
+    background-color: deeppink;
+    border: 1px dashed white;
+}
+.green{
+    background-color: mediumseagreen;
+    border: 1px dashed white;
+}
+.sue{
+    background-image: url('sue.png');
+    border: 1px dashed white;
+    background-size: contain;
+}
+.grey{
+    background-color: grey;
+    border: 1px dashed white;
+}
+.hover{
+    mix-blend-mode: screen;
+}
+.side{
+    mix-blend-mode: color-burn;
+}
+.select{
+    border: 2px solid white !important;
+}
+
+#info{
+    clear: both;
+    position: absolute;
+    top: 680px;
+    color: darksalmon;
+    padding: 10px;
+}
+
+hr{
+    border: 2px dashed floralwhite;
+    margin-top: 5px;
+}
+
+#info>p{
+    font-family: 'Do Hyeon';
+    margin: 10px 0px;
+    font-size: 19px;
+}
+.gameover{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    font-size: 50px;
+    width: 200px;
+    padding: 4px;
+    color: white;
+}
+.restart{
+    position: absolute;
+    top: 55%;
+    left: 33%;
+    text-align: center;
+    background-color: white;
+    width: 150px;
+    padding: 10px;
+    color: darkred;
+    cursor: pointer;
+}
+
+.restart:hover{
+    color: white;
+    background-color: red;
+}

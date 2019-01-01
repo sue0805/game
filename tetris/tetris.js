@@ -266,5 +266,5 @@ function blockDown(){
             grid[i][j] = grid[i-rowCnt][j];
         }
     }
-    $('#info>p').text('score : ' + score);
+    $('#info>#score').text('score : ' + score);
 }

@@ -44,7 +44,7 @@
 
             float: left;
 
-            width:33.3%;
+            width:25%;
 
             padding: 30px 0px;
 
@@ -151,6 +151,10 @@
                     $(e).click(function(){
                         location.href = 'tetris/tetris.html';
                     });
+                } else if($(e).text() == 'SUE PANG'){
+                    $(e).click(function(){
+                        location.href = 'sue_pang/sue_pang.html';
+                    });
                 }
             });
         });
@@ -162,12 +166,14 @@
         <div><a href="#brickout" id="1">BRICK OUT</a></div>
         <div><a href="#shootingdevil" id="2">SHOOTING DEVILS</a></div>
         <div><a href="#tetris" id="3">TETRIS</a></div>
+        <div><a href="#suepang" id="4">SUE PANG</a></div>
     </div>
 
     <div class="screen">
         <div class="s1" id="brickout"><p>BRICK OUT</p></div>
         <div class="s2" id="shootingdevil"><p>SHOOTING DEVILS</p></div>
         <div class="s3" id="tetris"><p>TETRIS</p></div>
+        <div class="s4" id="suepang"><p>SUE PANG</p></div>
     </div>
 </body>
 </html>
