@@ -1,156 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Brick Out</title>
-    <style>
-        body{
-            box-sizing: border-box;
-        }
-    #container{
-        width: 585px;
-        height:600px;
-        position: relative;
-        background: lightcyan;
-    }
-    #movingball{
-        width: 20px;
-        height: 20px;
-        position: absolute;
-    }
-    #bar{
-        width: 100px;
-        height: 10px;
-        background: black;
-        position: absolute;
-    }
-    #blocks div{
-        box-sizing: border-box;
-        width: 46px;
-        height: 20px;
-        margin:13px;
-        background-color: lightsalmon;
-        border: 1px solid white;
-        display: inline-block;
-    }
-    </style>
+    <link rel="stylesheet" href="ball.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
+
 <body>
-    <p>Life : <span id="life"></span></p>
-    <div id="container">
-        <div id="blocks" style="float:left;">
+    <div id="wrap">
+        <h1 id="title"><span>BRICK</span> OUT</h1>
+        <div id="info">
+            <div>score<p id="score">0</p>
+            </div>
+            <div>best<p id="best">0</p>
+            </div>
         </div>
-        <img id="movingball" src="ball.png" alt="ball">
-        <div id="bar"></div>
+        <span class="life">Life <span id="life">♥♥♥♥♥</span></span>
+        <div id="gameArea">
+            <div id="blockArea"></div>
+            <div id="bar"></div>
+            <div id="ball"></div>
+        </div>
     </div>
-    <p>이동 : 왼쪽 a 오른쪽 d</p>
-    <script>
-        var _top = 0;
-        var left = 0;
-        var bottom = 580;
-        var right = 565;
-        var r = 0;
-        var nextLevel = false;
-        var speed = 2;
-        var blocks = document.getElementById('blocks');
-        function makeBlock(){
-            for(i=1; i <= 40; i++){
-                blocks.innerHTML += '<div name="block"></div>';
-            }
-        }
-
-        window.onload = function(){
-            makeBlock();
-            var life = 3;
-            var _life = document.getElementById('life');
-            var ball = document.getElementById('movingball');
-            var posX = 290; // 공 최초 위치 x 좌표
-            var posY = 250; // 공 최초 위치 y 좌표
-            var stepX = speed; // 공 속도
-            var stepY = speed;
-            var id = setInterval(frame, 10);
-            var bar = document.getElementById('bar');
-            var posB = 0;
-            var barSpeed = 20;
-            var ballSize = 20;
-            var cnt = 0;
-            bar.style.top = "500px";
-            window.onkeypress = moveBar;
-            _life.innerHTML = life;
-
-            function frame(){
-                if(posX <= left){
-                    posX = left;
-                    stepX *= -1;
-                }else if (posY <= _top){
-                    posY = _top;
-                    stepY *= -1;
-                }else if(posX >= right){
-                    posX = right;
-                    stepX *= -1;
-                }else if(posY >= bottom){
-                    life--;
-                    if(life < 0){
-                        alert('You Lose~');
-                        location.reload();
-                    }
-                    _life.innerHTML = life;
-                    posX = 100;
-                    posY = 290;
-                }
-
-                if(posX-posB <= 100 && posX - posB >=-20 && posY == 480){
-                    stepY *= -1;
-                }
-                var block = document.querySelectorAll('#blocks div');
-                for(i=block.length-1; i >= 0; i--){
-                    if(!block[i].broken){
-                        var x = parseInt(block[i].offsetLeft);
-                        var y = parseInt(block[i].offsetTop);
-                        if(posX-x <= 46 && posX-x >= -20 && posY-y<=20 && posY-y>=-20){
-                            block[i].style.visibility = "hidden";
-                            block[i].broken = true;
-                            console.log(posY + ", " + y);
-                            cnt++;
-                            console.log(cnt);
-                            if(posX-x==-20 || posX-x==46){
-                                stepX *= -1;
-                            } else if((posY-y<=20 && posY-y >= 18) || (posY-y>=-20 && posY-y <= -18)){
-                                stepY *= -1;
-                            }
-                        }
-                    }
-                }
-                posX += stepX;
-                posY += stepY;
-                ball.style.top = posY + 'px';
-                ball.style.left = posX + 'px';
-                bar.style.left = posB + 'px';
-                if(cnt==40){
-                    cnt==0;
-                    clearInterval(id);
-                    alert("You Win!");
-                }
-                
-            }
-            function moveBar(e){
-                var k1 = e.key;
-                if(k1 == "a" || k1 == "A"){
-                    if(posB <= left){
-                        posB = left+20;
-                    }
-                        posB -= barSpeed;
-                } else if(k1 == "d" || k1 == "D"){
-                    if(posB >= right-100){
-                        posB = right-100;
-                    } 
-                        posB += barSpeed;
-                }
-                
-            }
-        }
-    </script>
+    <script src="ball.js"></script>
 </body>
+
 </html>

@@ -1,179 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>3 Games of Sue</title>
-    <style>
 
-        *{
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-            margin: 0px;
+  <title>Retro Games</title>
 
-        }
+  <!-- Bootstrap Core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-        .menu{
+  <!-- Custom Fonts -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 
-            width: 100%;
+  <!-- Custom CSS -->
+  <link href="css/stylish-portfolio.css" rel="stylesheet">
 
-            position: fixed;
-
-            z-index: 10;
-            background-color: floralwhite;
-
-        }
-
-        div>a{
-
-            background-color: floralwhite;
-
-            width: inherit;
-
-            text-decoration: none;
-
-            color: dimgrey;
-
-            padding: 20px;
-
-        }
-
-        .menu>div{
-
-            text-align: center;
-
-            float: left;
-
-            width:25%;
-
-            padding: 30px 0px;
-
-            background-color: floralwhite;
-
-            border-left: 2px solid white;
-
-            box-sizing: border-box;
-
-            font-weight: bolder;
-
-            color: dimgrey;
-
-        }
-
-        .screen{
-
-            width: 100%;
-
-        }
-
-        .screen>div{
-
-            border: 1px solid white;
-
-            width:100%;
-
-            height: -webkit-fill-available;
-
-            text-align: center;
-
-            font-size: 100px;
-
-        }
-
-        div>p{
-
-            padding-top:400px;
-            cursor: pointer;
-
-        }        
-
-        .s1{
-
-            background-color: darksalmon;
-
-            color: white;
-
-        }
-
-        .s2{
-
-            background-color: darkseagreen;
-
-            color: white;
-
-        }
-
-        .s3{
-
-            background-color: darkcyan;
-
-            color: white;
-
-        }
-
-        .s4{
-
-            background-color: darkgoldenrod;
-
-            color: white;
-
-        }
-
-        .s5{
-
-            background-color: darkred;
-
-            color: white;
-
-        }
-
-    </style>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.menu a').on('focusin click',function(e){
-                e.preventDefault();
-                var cls = ".s" + this.id;
-                var t = $(cls).offset().top;
-                console.log(t);
-                $(window).scrollTop(t);
-            });
-            $('.screen p').each(function(i, e){
-                if($(e).text() == 'BRICK OUT'){
-                    $(e).click(function(){
-                        location.href = 'ball/ball.html';
-                    });
-                } else if($(e).text() == 'SHOOTING DEVILS'){
-                    $(e).click(function(){
-                        location.href = 'shooting_devil/shooting_block.html';
-                    });
-                } else if($(e).text() == 'TETRIS'){
-                    $(e).click(function(){
-                        location.href = 'tetris/tetris.html';
-                    });
-                } else if($(e).text() == 'SUE PANG'){
-                    $(e).click(function(){
-                        location.href = 'sue_pang/sue_pang.html';
-                    });
-                }
-            });
-        });
-    </script>
 </head>
-<body>
 
-    <div class="menu">
-        <div><a href="#brickout" id="1">BRICK OUT</a></div>
-        <div><a href="#shootingdevil" id="2">SHOOTING DEVILS</a></div>
-        <div><a href="#tetris" id="3">TETRIS</a></div>
-        <div><a href="#suepang" id="4">SUE PANG</a></div>
-    </div>
+<body id="page-top">
 
-    <div class="screen">
-        <div class="s1" id="brickout"><p>BRICK OUT</p></div>
-        <div class="s2" id="shootingdevil"><p>SHOOTING DEVILS</p></div>
-        <div class="s3" id="tetris"><p>TETRIS</p></div>
-        <div class="s4" id="suepang"><p>SUE PANG</p></div>
+  <!-- Header -->
+  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <div class="wrap">
+          <div class="gameArea" id="gameArea">
+              <div id="msgbox">
+                  <p></p>
+              </div>
+              <div class="alice" id="alice">
+                  <div id="say">!</div>
+              </div>
+              <div class="monster1"></div>
+          </div>
+      </div>
+      <h1 class="mb-1">RETRO GAMES</h1>
+      <h3 class="mb-5">
+        <em>By Sue</em>
+      </h3>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" id="scrollBtn" click="scroll" style="cursor:pointer">더 보기</a>
     </div>
+    <div class="overlay"></div>
+  </header>
+
+  <!-- Portfolio -->
+  <section class="content-section" id="portfolio">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">GAMES</h3>
+        <h2 class="mb-5">Recent Projects</h2>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>BRICK OUT</h2>
+                <p class="mb-0">벽돌 깨기! 목숨이 다섯 개~</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>SHOOTING DEVILS</h2>
+                <p class="mb-0">빵야빵야빵야</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-2.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>TETRIS</h2>
+                <p class="mb-0">고전 게임 테트리스</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-3.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>SUEPANG</h2>
+                <p class="mb-0">세 개가 모이면 팡!</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-4.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="https://github.com/sue0805/game" target="_blank">
+            <i class="icon-social-github"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="text-muted small mb-0">Copyright &copy; Sue 2019</p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/stylish-portfolio.js"></script>
+  <script src="js/oopgame.js"></script>
+  <script src="js/main.js"></script>
+
 </body>
+
 </html>

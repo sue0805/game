@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Press+Start+2P');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P';
+    border-radius: 5px;
+}
+body{
+    background-color: #1f1f44;
+}
+#wrap{
+    background-color: #3f3f66;
+    border : 10px solid #bbb;
+    width: 800px;
+    height: 800px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+#title{
+    float: left;
+    margin-left: 100px;
+    padding: 15px;
+    color: firebrick;
+}
+
+#title>span{
+    color: azure;
+}
+
+#info{
+    float: right;
+    margin-right: 80px;
+}
+
+#info>div{
+    display: inline-block;
+    background-color: #1f1f44;
+    padding: 5px;
+    text-align: center;
+    width: 90px;
+    color: azure;
+    border: 1px dashed #bbb;
+}
+
+#info p{
+    padding: 5px;
+}
+
+#gameArea{
+    position: relative;
+    background-color: #111;
+    width: 700px;
+    height: 700px;
+    clear: both;
+    margin: 0px auto;
+    margin-top: 80px;
+    border: 1px solid silver;
+    padding: 5px;
+    overflow: hidden;
+    cursor: none;
+}
+
+#bar{
+    position: absolute;
+    width: 150px;
+    height: 20px;
+    background-color: #e1eeff;
+    border: 0px;
+    top: 600px;
+}
+
+#blockArea{
+    width: 673px;
+    height: 400px;
+    margin: 0px auto;
+}
+
+.block{
+    width: 60px;
+    height: 20px;
+    background-color: darkgray;
+    float: left;
+    margin: 25px 25px;
+    border: 1px solid #eee;
+}
+
+#ball{
+    position: absolute;
+    background-image: url(ball.png);
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    top: 575px;
+    left: 62px;
+}
+
+.life{
+    float: left;
+    margin-left: 80px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #bbb;
+    font-size: 18px;
+}
+
+#life{
+    color: firebrick;
+}
+
+#end{
+    color: azure;
+    opacity: 1 !important;
+    width: 300px;
+    margin: auto;
+}
+
+#restart, #nextlevel{
+    color: #111;
+    background-color: azure;
+    width: 140px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+#restart:hover, #nextlevel:hover{
+    color: azure;
+    background-color: firebrick;
+}
+
+.item{
+    background: linear-gradient(#b96464, #7e2323);
+    text-align: center;
+}
+
+.gem{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border: 1px solid red;
+    display: none;
+}
